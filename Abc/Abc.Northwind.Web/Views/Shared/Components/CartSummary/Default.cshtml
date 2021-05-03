@@ -1,0 +1,25 @@
+﻿@model Abc.Northwind.Web.Models.CartSummaryViewModel
+
+@*<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Something else here</a>
+</div>*@
+<ul class="dropdown-menu">
+    @foreach (var item in Model.Cart.CartLines)
+    {
+        <li>
+            <a>@item.Product.ProductName <span class="badge">@item.Quantity</span></a>
+        </li>
+    }
+    <li role="separator" class="divider"></li>
+    <li>
+        <a><span class="glyphicon glyphicon-align-left glyhpicon-shopping-cart" aria-hidden="true"></span>@Model.Cart.Total</a>
+    </li>
+    <li role="separator" class="divider"></li>
+    <li>
+        <a asp-controller="Cart" asp-action="List">Go To Cart Details</a>
+    </li>
+
+</ul>
